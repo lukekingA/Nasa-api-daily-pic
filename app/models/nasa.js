@@ -16,9 +16,10 @@ export default class Nasa {
     <p class="card-text">
      At ${this.date} 
     </p>
-    <form onkeydown="app.controllers.nasaController.setDate(event)">
+    <form onsubmit="app.controllers.nasaController.setDate(event)">
     <label for="new-pic">Get another days fantastic picture</label>
-    <input id="new-pic" class="rounded pl-1" type="date">
+    <input id="new-pic" class="rounded pl-1" type="date" name="date">
+    <button class="btn btn-sm" type="submit">Go</button>
     </form>
     </div>
     <p>${this.explanation}</p>

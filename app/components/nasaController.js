@@ -22,10 +22,8 @@ export default class NasaController {
   }
 
   setDate(e) {
-    if (e.keyCode === 13) {
-      e.preventDefault()
-      let date = e.target.value
-      _nService.getApiNasaPic(date)
-    }
+    e.preventDefault()
+    let date = e.target.date.value
+    _nService.getApiNasaPic(date)
   }
 }
