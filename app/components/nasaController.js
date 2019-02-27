@@ -20,4 +20,12 @@ export default class NasaController {
     _nService.addSubscriber('picture', showPic)
     _nService.getApiNasaPic()
   }
+
+  setDate(e) {
+    if (e.keyCode === 13) {
+      e.preventDefault()
+      let date = e.target.value
+      _nService.getApiNasaPic(date)
+    }
+  }
 }

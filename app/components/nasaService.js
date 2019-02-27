@@ -8,6 +8,7 @@ let _nasaApi = axios.create({
 let _key = 'qMLfu65BuBAxyTjzWuMuMtGLLKpuUCsBG0Em2Ops'
 
 
+
 let _state = {
   picture: []
 }
@@ -35,16 +36,20 @@ export default class NasaService {
   }
 
 
-  getApiNasaPic() {
+  getApiNasaPic(date = '') {
+    _nasaApi.get('', {
+        params: {
+          date: date
+        }
+      })
+      .then(res => {
+        let data = new Nasa(JSON.parse(JSON.stringify(res.data)))
+        console.log(data)
+        console.log(res)
+        setState('picture', data)
 
-    _nasaApi.get().then(res => {
-      let data = new Nasa(JSON.parse(JSON.stringify(res.data)))
-      console.log(data)
-      console.log(res)
-      setState('picture', data)
 
-
-    })
+      })
   }
 }
 //`?api_key=${_key}`
